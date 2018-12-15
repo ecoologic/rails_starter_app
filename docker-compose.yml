@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:11.1
+    volumes:
+      - ~/docker_data/var/lib/postgresql/data:/var/lib/postgresql/data
+    networks:
+      - app_lan
+  web:
+    build: .
+    command: bin/rails s -b www.lvh.me
+    volumes:
+      - .:/project_app
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    networks:
+      app_lan:
+        aliases:
+          - www.lvh.me
+
+networks:
+  app_lan:
+    driver: bridge
