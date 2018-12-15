@@ -22,3 +22,5 @@ Style/ParallelAssignment:
 Style/StringLiterals:
   Enabled: false
 
+RSpec/MultipleExpectations:
+  Max: 5

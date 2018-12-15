@@ -20,6 +20,9 @@ Bundler.require(*Rails.groups)
 module App
   # The Rails Application
   class Application < Rails::Application
+    server_time_zone = File.read("/etc/timezone").delete("\n").split('/').last
+    config.time_zone = server_time_zone
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

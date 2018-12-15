@@ -21,7 +21,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-nav'
-  gem 'pry-rescue'
   gem 'pry-stack_explorer'
 
   gem 'rubocop', require: false
