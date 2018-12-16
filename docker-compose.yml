@@ -8,9 +8,11 @@ services:
       - app_lan
   web:
     build: .
-    command: bin/rails s -b www.lvh.me
+    command: ./start.sh # bin/rails s -b www.lvh.me
     volumes:
       - .:/project_app
+    volumes_from:
+      - /box
     ports:
       - 3000:3000
     depends_on:
@@ -19,6 +21,10 @@ services:
       app_lan:
         aliases:
           - www.lvh.me
+  box:
+    image: busybox
+    volumes:
+      - /box
 
 networks:
   app_lan:
