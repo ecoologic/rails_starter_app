@@ -8,9 +8,10 @@ services:
       - app_lan
   web:
     build: .
-    command: bin/rails s -b www.lvh.me
+    command: ls -la /bundled_gems # bin/rails s -b www.lvh.me
     volumes:
       - .:/project_app
+      - ~/docker_data/bundled_gems:/bundled_gems
     ports:
       - 3000:3000
     depends_on:

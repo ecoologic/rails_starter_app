@@ -6,6 +6,9 @@ RUN echo "Australia/Brisbane" > /etc/timezone
 RUN mkdir /project_app
 WORKDIR /project_app
 COPY Gemfile* /project_app/
-RUN bundle
+COPY .bundle /project_app/
+ENV BUNDLE_JOBS=4 \
+    BUNDLE_PATH=/bundled_gems
+RUN bundle package --verbose
 
 COPY . /project_app
