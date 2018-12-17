@@ -1,3 +1,7 @@
+# NOTE: Remember to run `docker-compose build` if you change this file
+#       If you remove a gem, Gemfile.lock won't be updated
+#       as dependencies are satisfied anyway.
+#       See bin/docker-entrypoint.sh
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -6,7 +10,7 @@ ruby '2.5.3'
 gem 'rails', '5.2.2'
 gem 'puma'
 gem 'pg'
-gem 'sass-rails'
+gem 'sassc-rails'
 # gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 # gem 'jbuilder', '~> 2.5'

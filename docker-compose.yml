@@ -1,4 +1,5 @@
 version: '3.7'
+
 services:
   db:
     image: postgres:11.1
@@ -10,7 +11,8 @@ services:
     build: .
     command: bin/rails s -b www.lvh.me
     volumes:
-      - .:/project_app
+      - .:/development
+      - ~/docker_data/development_bundle_cache:/development_bundle_cache
     ports:
       - 3000:3000
     depends_on:
