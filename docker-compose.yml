@@ -9,6 +9,8 @@ services:
       - app_lan
   web:
     build: .
+    stdin_open: true
+    tty: true
     command: bin/rails s -b www.lvh.me
     volumes:
       - .:/development
