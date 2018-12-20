@@ -20,6 +20,9 @@ gem 'sassc-rails'
 # gem 'capistrano-rails', group: :development
 gem 'bootsnap', require: false
 
+gem 'devise'
+gem 'cancancan'
+
 group :development, :test do
   # gem 'byebug', platforms: %w[mri mingw x64_mingw]
   gem 'pry-rails'

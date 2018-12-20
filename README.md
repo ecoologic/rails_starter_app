@@ -11,7 +11,7 @@ Depends on [Docker](https://www.docker.com/).
 
 ## Run specs
 
-    docker-container run web bin/rspec
+    docker-container run web bin/rake
 
 ## Debug
 

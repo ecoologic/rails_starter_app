@@ -4,15 +4,27 @@ require: rubocop-rspec
 AllCops:
   TargetRubyVersion: 2.5.3
   Exclude:
-    - 'bin/**/*'
-    - 'vendor/**/*'
+    - bin/**/*
+    - vendor/**/*
+    - db/schema.rb
 
 Bundler/OrderedGems:
   Enabled: false
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
 Metrics/LineLength:
   Max: 115
+Metrics/MethodLength:
+  Exclude:
+    - db/**/*
 
+Style/Documentation:
+  Exclude:
+    - db/**/*
+    - app/controllers/**/*
+    - app/helpers/**/*
 Style/DoubleNegation:
   Enabled: false
 Style/FrozenStringLiteralComment:
@@ -22,5 +34,11 @@ Style/ParallelAssignment:
 Style/StringLiterals:
   Enabled: false
 
+RSpec/FilePath:
+  Exclude:
+    - spec/routing/**/* # v0.61.1 confuses routing with controller
+RSpec/DescribeClass:
+  Exclude:
+    - spec/views/**/* # v0.61.1 confuses views with classes
 RSpec/MultipleExpectations:
   Max: 5

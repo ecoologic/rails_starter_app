@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <%= render '/layouts/log_status', user: current_user %>
+    <%= render '/layouts/flash_messages' %>
+
     <%= yield %>
   </body>
 </html>

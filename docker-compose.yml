@@ -11,6 +11,8 @@ services:
     build: .
     stdin_open: true
     tty: true
+    environment:
+      - EDITOR=vim
     command: bin/rails s -b www.lvh.me
     volumes:
       - .:/development

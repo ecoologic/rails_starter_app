@@ -1,7 +1,6 @@
 FROM ruby:2.5.3
 MAINTAINER Erik Ecoologic
-RUN groupadd docker
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev # nodejs
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev vim # nodejs
 RUN ln -fs /usr/share/zoneinfo/Australia/Brisbane /etc/localtime
 RUN echo "Australia/Brisbane" > /etc/timezone
 
