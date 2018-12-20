@@ -17,11 +17,13 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require_relative 'settings'
+
 module App
   # The Rails Application
   class Application < Rails::Application
-    server_time_zone = File.read("/etc/timezone").delete("\n").split('/').last
-    config.time_zone = server_time_zone
+    server_time_zone = File.read('/etc/timezone').delete("\n").split('/').last
+    config.time_zone = server_time_zone # Brisbane
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2

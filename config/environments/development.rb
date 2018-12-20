@@ -33,7 +33,11 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = SETTINGS[:action_mailer][:default_url_options]
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings =
+    Rails.application.credentials[:action_mailer][:smtp_settings]
+      .merge(SETTINGS[:action_mailer][:smtp_settings])
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -59,7 +63,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.web_console.whitelisted_ips = '172.19.0.1'
+  config.web_console.whitelisted_ips = SETTINGS[:web_console][:whitelisted_ips]
 
   config.sass.inline_source_maps = true
 end
