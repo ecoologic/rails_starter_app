@@ -1,4 +1,3 @@
-# Before Rails initialization use env vars only
 # Good old declarative plain _data_
 # Keep 1:1 name mapping between env vars, Ruby classes and Rails config/credentials
 SETTINGS = {
@@ -9,7 +8,7 @@ SETTINGS = {
         address:              'smtp.gmail.com',
         port:                 587,
         domain:               'gmail.com',
-        user_name:            ENV['ACTION_MAILER__SMTP_SETTINGS__USER_NAME'],
+        user_name:            ENV['APP_ACTION_MAILER__SMTP_SETTINGS__USER_NAME'],
         # password:
         authentication:       :plain,
         enable_starttls_auto: true

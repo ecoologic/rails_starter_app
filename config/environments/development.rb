@@ -36,8 +36,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = SETTINGS[:action_mailer][:default_url_options]
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings =
-    Rails.application.credentials[:action_mailer][:smtp_settings]
-      .merge(SETTINGS[:action_mailer][:smtp_settings])
+    p(Rails.application.credentials[:action_mailer][:smtp_settings]
+      .merge(SETTINGS[:action_mailer][:smtp_settings]))
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
