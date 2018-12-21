@@ -4,7 +4,5 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!, except: :home_page
 
-  def home_page
-    flash.now[:notice] = "Welcome! Log in to do something (not really)" unless user_signed_in?
-  end
+  check_authorization unless: :devise_controller?
 end

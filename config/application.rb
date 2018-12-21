@@ -22,6 +22,8 @@ require_relative 'settings'
 module App
   # The Rails Application
   class Application < Rails::Application
+    console { require_relative 'console' }
+
     server_time_zone = File.read('/etc/timezone').delete("\n").split('/').last
     config.time_zone = server_time_zone # Brisbane
 

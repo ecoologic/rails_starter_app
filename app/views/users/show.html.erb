@@ -4,3 +4,7 @@
 </ul>
 
 <%= link_to 'Back', users_path %>
+
+<p>
+  <%= link_to "Edit", edit_user_registration_path if can?(:manage, @user) %>
+</p>

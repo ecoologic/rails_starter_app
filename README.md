@@ -6,6 +6,8 @@ A blank app.
 
 Depends on [Docker](https://www.docker.com/).
 
+    cp .env.sample .env
+    vim .env # And customise the settings
     docker-compose build web && docker-compose up web
     docker-container bin/rails db:setup
 
@@ -15,8 +17,8 @@ Depends on [Docker](https://www.docker.com/).
 
 ## Debug
 
-    docker-container ls
-    docker-container [container_id_web_app] attach
+    docker-compose ls
+    docker-compose [container_id_web_app] attach
 
 ## Known issues
 

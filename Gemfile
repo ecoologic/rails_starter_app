@@ -21,6 +21,7 @@ gem 'sassc-rails'
 gem 'bootsnap', require: false
 
 gem 'devise'
+gem 'devise-secure_password'
 gem 'cancancan'
 
 group :development, :test do

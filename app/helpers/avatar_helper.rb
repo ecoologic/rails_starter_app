@@ -7,6 +7,6 @@ module AvatarHelper
 
   def avatar_for(user, size_type = :medium)
     size = { small: 16, medium: 32, big: 64 }[size_type]
-    image_tag gravatar_url(user.email, size), alt: user, title: user
+    image_tag gravatar_url(user.email, size), alt: user, title: "#{user} profile"
   end
 end

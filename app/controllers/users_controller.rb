@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
+  load_and_authorize_resource
+
+  # def index
 
   def update
     if @user.update(user_params)
@@ -11,17 +11,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
-
-  def edit
-    @user = User.find(params[:id])
-  end
+  # def show
+  # def edit
 
   def destroy
-    User.find(params[:id]).destroy!
-    redirect_to users_url, notice: 'Destroyed'
+    user = User.find(params[:id])
+    user.destroy!
+    redirect_to users_url, notice: "#{user} Destroyed"
   end
 
   private
