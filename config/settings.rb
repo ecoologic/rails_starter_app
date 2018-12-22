@@ -9,7 +9,6 @@ SETTINGS = {
         port:                 587,
         domain:               'gmail.com',
         user_name:            ENV['APP_ACTION_MAILER__SMTP_SETTINGS__USER_NAME'],
-        # password:
         authentication:       :plain,
         enable_starttls_auto: true
       },

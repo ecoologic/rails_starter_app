@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_032221) do
+ActiveRecord::Schema.define(version: 2018_12_22_034637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "previous_passwords", force: :cascade do |t|
+    t.string "salt"
+    t.string "encrypted_password"
+    t.bigint "user_id", null: false
+    t.index ["encrypted_password"], name: "index_previous_passwords_on_encrypted_password"
+    t.index ["salt"], name: "index_previous_passwords_on_salt"
+    t.index ["user_id"], name: "index_previous_passwords_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +38,5 @@ ActiveRecord::Schema.define(version: 2018_12_16_032221) do
     t.index ["role"], name: "index_users_on_role"
   end
 
+  add_foreign_key "previous_passwords", "users"
 end

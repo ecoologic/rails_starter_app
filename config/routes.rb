@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root 'application#home_page'
+  root 'home_pages#index'
 
   devise_for :users
 
-  resources :users, only: %i[index show destroy] # Done by Devise
+  resources :users, only: %i[index show] # Rest done by Devise
 end
