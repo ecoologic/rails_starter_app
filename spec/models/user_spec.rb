@@ -7,7 +7,7 @@ RSpec.describe User do
     it "doesn't save without email or password" do
       expect(user.save).to be false
       expect(user.errors.to_a).to include "Email can't be blank",
-                                          "Password can't be blank"
+                                          "Password must contain at least 8 characters"
     end
   end
 
