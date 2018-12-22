@@ -1,3 +1,4 @@
+# Login, Logout stuff
 module Authorization
   extend ActiveSupport::Concern
 

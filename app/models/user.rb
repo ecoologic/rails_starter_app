@@ -1,7 +1,7 @@
 # A user of the system
 class User < ApplicationRecord
-  include Authentication,
-          Authorization
+  include Authorization
+  include Authentication
 
   def to_s
     email

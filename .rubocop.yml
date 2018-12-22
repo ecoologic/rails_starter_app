@@ -7,12 +7,14 @@ AllCops:
     - bin/**/*
     - vendor/**/*
     - db/schema.rb
+    - config/console.rb
 
 Bundler/OrderedGems:
   Enabled: false
 
 Metrics/BlockLength:
   Exclude:
+    - config/**/*
     - spec/**/*
 Metrics/LineLength:
   Max: 115
@@ -20,6 +22,9 @@ Metrics/MethodLength:
   Exclude:
     - db/**/*
 
+Layout/AlignHash:
+  Enabled: false
+  
 Style/Documentation:
   Exclude:
     - db/**/*

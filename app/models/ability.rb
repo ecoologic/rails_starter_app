@@ -1,9 +1,10 @@
+# Who can do what
 class Ability
   include CanCan::Ability
 
   def initialize(user)
     return unless user
-    return can :manage, :all if user.god?
+    return can :manage, :all if user.god? # rubocop:disable Lint/ReturnInVoidContext
 
     can :read, User
     can :manage, User, id: user.id

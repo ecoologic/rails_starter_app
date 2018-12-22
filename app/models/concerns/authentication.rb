@@ -1,3 +1,4 @@
+# Who can do what
 module Authentication
   extend ActiveSupport::Concern
 
@@ -7,6 +8,5 @@ module Authentication
     devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :validatable,
            :password_has_required_content, :password_disallows_frequent_reuse
-
   end
 end
