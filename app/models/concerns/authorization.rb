@@ -3,6 +3,8 @@ module Authorization
   extend ActiveSupport::Concern
 
   included do
+    enum role: { basic: 0, god: -1 }
+
     scope :basic, -> { where(role: :basic) }
     scope :god, -> { where(role: :god) }
   end

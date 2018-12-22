@@ -17,8 +17,8 @@ Depends on [Docker](https://www.docker.com/).
 
 ## Debug
 
-    docker-compose ls
-    docker-compose [container_id_web_app] attach
+    docker container ls
+    docker container [container_id_web_app] attach
 
 ## Known issues
 
