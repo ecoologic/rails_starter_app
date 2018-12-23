@@ -1,6 +1,8 @@
-.flash_messages {
-  font-weight: bold;
+.flash_messages { font-weight: bold }
+.flash_messages__notice { color: darkblue }
+.flash_messages__alert { color: darkred }
 
-  .notice { color: darkblue }
-  .alert { color: darkred }
+.textarea__big {
+  width: 100%;
+  height: 10em;
 }

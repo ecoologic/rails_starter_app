@@ -5,10 +5,12 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'Updated'
+      flash.now[:notice] = "Updated"
     else
-      render :edit
+      flash.now[:alert] = "Not updated"
     end
+
+    render :edit
   end
 
   # def show
@@ -23,6 +25,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.fetch(:user, {})
+    params.fetch(:user, {}).permit(:private_notes)
   end
 end

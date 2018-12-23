@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: %i[index show] # Rest done by Devise
+  resources :users, only: %i[index show edit update] # Rest done by Devise
 end

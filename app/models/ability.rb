@@ -3,11 +3,13 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    return unless user
-    return can :manage, :all if user.god? # rubocop:disable Lint/ReturnInVoidContext
-
-    can :read, User
-    can :manage, User, id: user.id
+    if !user
+      nil
+    elsif user.god_role?
+      can :manage, :all
+    else
+      basic_abilities(user)
+    end
 
     # Define abilities for the passed in user here. For example:
     #
@@ -35,5 +37,10 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+  end
+
+  def basic_abilities(user)
+    can :read, User
+    can :manage, User, id: user.id
   end
 end
