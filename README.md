@@ -1,6 +1,56 @@
 # APP
 
-A blank app.
+TODO? How to market?
+
+An app to know which websites respects your privacy and those you should avoid. The database created by the community by answering questions and linking the relevant lines in the website policy.
+
+[Answer]
+    + rating
+    + quote
+    + upvote_user_ids: Array
+    + downvote_user_ids: Array
+    + created_at
+[Answer] *-> [Question]
+[Answer] *-> [Website]
+[Answer] *-> [User]
+
+[Question]
+    + value
+    + position
+
+[Page] => [Website]-(Page#name = 'root')
+[Page] *-> [Website]
+[Page]
+    + name (eg: Root, Privacy, T&C, Article, Review)
+    + url
+    + updated_at
+    + html (to spot version changes)
+
+---
+
+[Comment] *-(commentable)-> [Answer]
+[Comment] *-(commentable)-> [Page]
+[Comment] *-> [User]
+
+[Badge] *-> [User]
+[Badge]
+    + name
+    + rules: Array
+
+    
+## Questions
+
+* Shares data with third parties
+* Resells your data
+* Hard to unsubscribe
+* Min password length (number)
+* Max password length (number)
+* Deletes your data after cancel account
+* Anonymices your data after cancel account
+* Indexes user profile
+* User profile is public
+* User profiles are scrape-able (sequential IDs)
+* Report a breach (link to news article)
 
 ## Install
 
