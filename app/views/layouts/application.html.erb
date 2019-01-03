@@ -10,17 +10,12 @@
   </head>
 
   <body>
-    <header>
-      <%= link_to "Home", root_path %>
+    <%= render '/layouts/header', user: current_user %>
 
-      <%= render '/layouts/log_status', user: current_user %>
-      <%= render '/layouts/flash_messages' %>
-    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
 
-    <div class="container"><%= yield %></div>
-  
-    <footer>
-      Copyright <%= Date.current.year %> Erik Ecoologic (for what matters)
-    </footer>
+    <%= render '/layouts/footer', year: Date.current.year %>
   </body>
 </html>
