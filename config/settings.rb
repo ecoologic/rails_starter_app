@@ -1,8 +1,9 @@
 # Good old declarative plain _data_
 # Keep 1:1 name mapping between env vars, Ruby classes and Rails config/credentials
-SETTINGS = {
-  #############################################################################
-  development: {
+# Don't insert secrets here, use `bin/rails credentials:edit`
+
+environment_settings = {
+  development: { ##############################################################
     action_mailer: {
       smtp_settings: {
         address:              'smtp.gmail.com',
@@ -16,11 +17,18 @@ SETTINGS = {
     },
     web_console: { whitelisted_ips: '172.19.0.1' }
   },
-  #############################################################################
-  test: {
+  test: { #####################################################################
     action_mailer: {
+      # smtp_settings:
       default_url_options: { host: 'http://lvh.me' }
     }
     # web_console:
   }
-}[Rails.env.to_sym].tap { |h| h.default = {} }.freeze
+}[Rails.env.to_sym]
+
+SETTINGS = { ##################################################################
+  author: "Erik Ecoologic",
+  name: "App"
+}.merge(environment_settings)
+           .tap { |h| h.default = {} }
+           .freeze
