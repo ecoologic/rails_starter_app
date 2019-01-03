@@ -13,8 +13,13 @@ class UsersController < AuthenticatedController
     render :edit
   end
 
-  # def show
-  # def edit
+  def show
+    @title_prefix = @user
+  end
+
+  def edit
+    @title_prefix = "#{@user} Edit"
+  end
 
   def destroy
     user = User.find(params[:id])

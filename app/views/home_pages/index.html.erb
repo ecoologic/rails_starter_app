@@ -1,9 +1,14 @@
 <h1>App</h1>
 
-<p>Author: Erik Ecoologic</p>
-<p>Date: <%= Date.current %></p>
-<p>Time: <%= Time.now.to_s :no_date %> <%= Time.zone %></p>
+<section>
+  <p>Author: Erik Ecoologic</p>
+  <p>Date: <%= Date.current %></p>
+  <p>Time: <%= Time.now.to_s :no_date %></p>
+  <p>Time Zone: <%= Time.zone %></p>
+</section>
 
-<p>
-  <%= link_to("User list", users_path) if can?(:read, User) %>
-</p>
+<section>
+  <p>
+    <%= link_to("User list", users_path) if can?(:read, User) %>
+  </p>
+</section>
