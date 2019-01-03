@@ -2,7 +2,7 @@
 
 TODO? How to market?
 
-An app to know which websites respects your privacy and those you should avoid. The database created by the community by answering questions and linking the relevant lines in the website policy.
+An app to know which websites respect your privacy and those you should avoid. The database created by the community by answering questions and quoting the relevant lines in the website policy.
 
 [Answer]
     + rating
