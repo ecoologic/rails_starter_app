@@ -30,5 +30,5 @@ SETTINGS = { ##################################################################
   author: "Erik Ecoologic",
   name: "App"
 }.merge(environment_settings)
-  .tap { |h| h.default = {} }
-  .freeze
+           .tap { |h| h.default = {} }
+           .freeze
