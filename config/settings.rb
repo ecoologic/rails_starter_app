@@ -1,6 +1,7 @@
 # Good old declarative plain _data_
 # Keep 1:1 name mapping between env vars, Ruby classes and Rails config/credentials
-# Don't insert credentials here, use CREDENTIALS
+# Don't insert secrets here, use `bin/rails credentials:edit`
+
 environment_settings = {
   development: { ##############################################################
     action_mailer: {
