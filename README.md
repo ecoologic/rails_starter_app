@@ -21,7 +21,7 @@ An app to know which websites respect your privacy and those you should avoid. T
 [Page] => [Website]-(Page#name = 'root')
 [Page] *-> [Website]
 [Page]
-    + name (eg: Root, Privacy, T&C, Article, Review)
+    + name (eg: Facebook, Privacy, T&C, Article, Review)
     + url
     + updated_at
     + html (to spot version changes)

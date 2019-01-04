@@ -3,7 +3,7 @@ class CreatePreviousPasswords < ActiveRecord::Migration[5.2]
     create_table :previous_passwords do |t|
       t.string :salt, index: true
       t.string :encrypted_password, index: true
-      t.references :user, foreign_key: true, null: false
+      t.references :user, foreign_key: true, index: true, null: false
     end
   end
 end
