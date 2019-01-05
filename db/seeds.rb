@@ -31,4 +31,6 @@ Question.create! [{ position: 0, value: "Shares data with third parties" },
                   { position: 7, value: "Indexes user profile" },
                   { position: 8, value: "User profile is public" },
                   { position: 9, value: "User profiles are scrape-able (sequential IDs)" },
-                  { position: 10, value: "Report a breach (link to news article)" }]
+                  { position: 10, value: "Does it require more privileges than necessary" },
+                  { position: 11, value: "Does it respect non-tracking browser settings?" },
+                  { position: 12, value: "Has it been breached? (link to news article)" }]
