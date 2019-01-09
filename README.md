@@ -22,7 +22,7 @@ An app to know which websites respect your privacy and those you should avoid. T
 [Page] => [Website]-(Page#name = 'root')
 [Page] *-> [Website]
 [Page]
-    + name (eg: Facebook, Privacy, T&C, Article, Review)
+    + name (eg: Facebook, Privacy, T&C, Terms of Service, Article, Review)
     + url
     + updated_at
     + html (to spot version changes)
@@ -38,7 +38,7 @@ An app to know which websites respect your privacy and those you should avoid. T
     + name
     + rules: Array
 
-    
+
 ## Questions
 
 * Shares data with third parties

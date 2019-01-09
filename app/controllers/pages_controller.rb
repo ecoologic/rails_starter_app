@@ -1,28 +1,12 @@
-class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+class PagesController < AuthenticatedController
+  load_and_authorize_resource
 
-  # GET /pages
-  def index
-    @pages = Page.all
-  end
+  # def index
+  # def show
+  # def new
+  # def edit
 
-  # GET /pages/1
-  def show
-  end
-
-  # GET /pages/new
-  def new
-    @page = Page.new
-  end
-
-  # GET /pages/1/edit
-  def edit
-  end
-
-  # POST /pages
   def create
-    @page = Page.new(page_params)
-
     if @page.save
       redirect_to @page, notice: 'Page was successfully created.'
     else
@@ -30,7 +14,6 @@ class PagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pages/1
   def update
     if @page.update(page_params)
       redirect_to @page, notice: 'Page was successfully updated.'
@@ -39,20 +22,14 @@ class PagesController < ApplicationController
     end
   end
 
-  # DELETE /pages/1
   def destroy
-    @page.destroy
+    @page.destroy!
     redirect_to pages_url, notice: 'Page was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_page
-      @page = Page.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def page_params
-      params.require(:page).permit(:user_id, :parent_page_id, :name, :url, :html)
-    end
+  def page_params
+    params.require(:page).permit(:name, :url, :html)
+  end
 end
