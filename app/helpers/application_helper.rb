@@ -5,4 +5,12 @@ module ApplicationHelper
     @title_prefix ||= "#{controller_name.singularize} #{action_name}".humanize.titleize
     @title ||= "#{@title_prefix} | #{SETTINGS[:name]}"
   end
+
+  def render_empty(list, message: 'Nothing to display')
+    render('empty', message: message) if list.empty?
+  end
+
+  def render_errors(model)
+    render('errors', model: model) if model.errors.any?
+  end
 end
