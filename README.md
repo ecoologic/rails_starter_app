@@ -26,6 +26,7 @@ An app to know which websites respect your privacy and those you should avoid. T
     + url
     + updated_at
     + html (to spot version changes)
+    + icon (ActiveStore)
 
 ---
 
