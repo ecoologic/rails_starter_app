@@ -69,7 +69,7 @@ Depends on [Docker](https://www.docker.com/).
 ## Debug
 
     docker container ls
-    docker container [container_id_web_app] attach
+    docker container attach [container_id_web_app]
 
 ## Known issues
 
