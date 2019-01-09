@@ -1,16 +1,5 @@
 <%= form_with model: page do |form| %>
-  <%= render 'errors', model: page %>
-  <% if page.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
-
-      <ul>
-      <% page.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render_errors(page) %>
 
   <div class="field">
     <%= form.label :name %>

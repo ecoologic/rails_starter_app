@@ -6,7 +6,11 @@ module ApplicationHelper
     @title ||= "#{@title_prefix} | #{SETTINGS[:name]}"
   end
 
-  def empty(list, message: 'Nothing to display')
+  def render_empty(list, message: 'Nothing to display')
     render('empty', message: message) if list.empty?
+  end
+
+  def render_errors(model)
+    render('errors', model: model) if model.errors.any?
   end
 end

@@ -2,7 +2,7 @@
 
 <h1>Pages</h1>
 
-<%= empty(@pages) || render('table', pages: @pages) %>
+<%= render_empty(@pages) || render('table', pages: @pages) %>
 <br>
 
 <%= link_to('New Page', new_page_path) if can?(:create, Page) %>
