@@ -1,4 +1,5 @@
 <%= form_with model: page do |form| %>
+  <%= render 'errors', model: page %>
   <% if page.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
@@ -19,11 +20,6 @@
   <div class="field">
     <%= form.label :url %>
     <%= form.text_field :url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :html %>
-    <%= form.text_field :html %>
   </div>
 
   <div class="actions">

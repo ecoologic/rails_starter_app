@@ -16,7 +16,7 @@ class Ability
     can :read, User
     can :manage, User, id: user.id
 
-    can :manage, Page, user_id: user.id # TODO:
+    can :manage, Page, creator_id: user.id
     can :read, Page
   end
 end
