@@ -8,17 +8,21 @@
 
 if Rails.env.development?
   password = 'Pass_123'
-  User.create! [{ password: password, email: 'erik@pm.me' },
-                { password: password, email: 'zambo@pm.me' },
-                { password: password, email: 'tia@pm.me' },
-                { password: password, email: 'roby@pm.me' },
-                { password: password, email: 'gio@pm.me' },
-                { password: password, email: 'daniel@pm.me' },
-                { password: password, email: 'tommy@pm.me' },
-                { password: password, email: 'naji@pm.me' },
-                { password: password, email: 'tania@pm.me' },
-                { password: password, email: 'tatti@pm.me' },
-                { password: password, email: 'dany@pm.me' }]
+  god, user, * =
+    User.create! [{ password: "Diff3r3_Nt", email: 'god@gods.gov', role: 'god' },
+                  { password: password, email: 'erik@pm.me' },
+                  { password: password, email: 'zambo@pm.me' },
+                  { password: password, email: 'tia@pm.me' },
+                  { password: password, email: 'roby@pm.me' },
+                  { password: password, email: 'gio@pm.me' },
+                  { password: password, email: 'daniel@pm.me' },
+                  { password: password, email: 'tommy@pm.me' },
+                  { password: password, email: 'naji@pm.me' },
+                  { password: password, email: 'tania@pm.me' },
+                  { password: password, email: 'tatti@pm.me' },
+                  { password: password, email: 'dany@pm.me' }]
+  Page.create! [{ name: 'Facebook', url: 'https://facebook.com', creator: god },
+                { flatmates: 'Flatmates', url: 'https://flatmates.com.au', creator: user }]
 end
 
 Question.create! [{ position: 0, value: "Shares data with third parties" },
