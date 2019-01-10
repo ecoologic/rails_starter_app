@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 if Rails.env.development?
   password = 'Pass_123'
   god, user, * =
@@ -21,8 +13,8 @@ if Rails.env.development?
                   { password: password, email: 'tania@pm.me' },
                   { password: password, email: 'tatti@pm.me' },
                   { password: password, email: 'dany@pm.me' }]
-  Page.create! [{ name: 'Facebook', url: 'https://facebook.com', creator: god },
-                { flatmates: 'Flatmates', url: 'https://flatmates.com.au', creator: user }]
+  Page.create! [{ name: 'Facebook', url: 'https://facebook.com', html: '', creator: god },
+                { name: 'Flatmates', url: 'https://flatmates.com.au', html: '', creator: user }]
 end
 
 Question.create! [{ position: 0, value: "Shares data with third parties" },

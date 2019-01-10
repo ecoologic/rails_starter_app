@@ -1,6 +1,7 @@
+# Utilities for URLs
 class Rich::Url
   def initialize(url)
-    @url = url
+    @url = url.freeze
   end
 
   def uri
