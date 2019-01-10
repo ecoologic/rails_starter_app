@@ -6,14 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(email: 'erik@pm.me', password: 'Pass_123')
-User.create(email: 'zambo@pm.me', password: 'Pass_123')
-User.create(email: 'tia@pm.me', password: 'Pass_123')
-User.create(email: 'roby@pm.me', password: 'Pass_123')
-User.create(email: 'gio@pm.me', password: 'Pass_123')
-User.create(email: 'daniel@pm.me', password: 'Pass_123')
-User.create(email: 'tommy@pm.me', password: 'Pass_123')
-User.create(email: 'naji@pm.me', password: 'Pass_123')
-User.create(email: 'tania@pm.me', password: 'Pass_123')
-User.create(email: 'tatti@pm.me', password: 'Pass_123')
-User.create(email: 'dany@pm.me', password: 'Pass_123')
+if Rails.env.development?
+  password = 'Pass_123'
+  User.create! [{ password: "Diff3r3_Nt", email: 'god@gods.gov', role: 'god' },
+                { password: password, email: 'erik@pm.me' },
+                { password: password, email: 'zambo@pm.me' },
+                { password: password, email: 'tia@pm.me' },
+                { password: password, email: 'roby@pm.me' },
+                { password: password, email: 'gio@pm.me' },
+                { password: password, email: 'daniel@pm.me' },
+                { password: password, email: 'tommy@pm.me' },
+                { password: password, email: 'naji@pm.me' },
+                { password: password, email: 'tania@pm.me' },
+                { password: password, email: 'tatti@pm.me' },
+                { password: password, email: 'dany@pm.me' }]
+end
