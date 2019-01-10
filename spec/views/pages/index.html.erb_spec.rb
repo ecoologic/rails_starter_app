@@ -1,25 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "pages/index", type: :view do
-  before(:each) do
-    assign(:pages, [
-      Page.create!(
-        :name => "Name",
-        :url => "Url",
-        :html => "Html"
-      ),
-      Page.create!(
-        :name => "Name",
-        :url => "Url",
-        :html => "Html"
-      )
-    ])
-  end
+  let(:page) { build(:page) }
+  before { assign(:pages, [page, page]) }
 
   it "renders a list of pages" do
     render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => "Url".to_s, :count => 2
-    assert_select "tr>td", :text => "Html".to_s, :count => 2
+
+    assert_select "tr>td", text: page.name, count: 2
+    assert_select "tr>td", text: page.pretty_url, count: 2
   end
 end
