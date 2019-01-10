@@ -12,7 +12,7 @@
   <% pages.each do |page| %>
     <tr>
       <td><%= page.name %></td>
-      <td><%= link_to page.url, page.url %></td>
+      <td><%= link_to page.pretty_url, page.url %></td>
       <td><%= page.html %></td>
       <td><%= link_to 'Show', page %></td>
       <td><%= link_to 'Edit', edit_page_path(page) %></td>
