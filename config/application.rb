@@ -39,5 +39,7 @@ module App
     config.generators.system_tests = nil
 
     config.action_view.form_with_generates_remote_forms = false
+
+    config.autoload_paths << 'lib'
   end
 end
