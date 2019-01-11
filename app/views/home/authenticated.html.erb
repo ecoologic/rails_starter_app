@@ -1,0 +1,7 @@
+<section>
+  <p><b>Contratulations!</b> You are authenticated.  And now what?</p>
+</section>
+<section>
+  <p><%= link_to "Pages", pages_path %></p>
+  <p><%= link_to("Users", users_path) if can?(:read, User) %></p>
+</section>
