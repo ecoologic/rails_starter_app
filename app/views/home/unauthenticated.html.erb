@@ -8,7 +8,5 @@
 </section>
 
 <section>
-  <p>
-    <%= link_to("User list", users_path) if can?(:read, User) %>
-  </p>
+  <p><%= link_to "You've better authenticate", new_user_session_path %></p>
 </section>
