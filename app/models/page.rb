@@ -9,9 +9,7 @@ class Page < ApplicationRecord
   validate :validate_url
 
   before_validation { self.url = rich_url.uri.normalize }
-
-  scope :ordered, -> { order(updated_at: :desc) }
-
+  
   # http://www.facebook.com -> www.facebook.com
   def pretty_url
     rich_url.prettify

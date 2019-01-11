@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2018_12_25_075340) do
     t.index ["creator_id"], name: "index_answers_on_creator_id"
     t.index ["page_id"], name: "index_answers_on_page_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["updated_at"], name: "index_answers_on_updated_at"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_12_25_075340) do
     t.index ["name"], name: "index_pages_on_name"
     t.index ["parent_page_id", "name"], name: "index_pages_on_parent_page_id_and_name", unique: true
     t.index ["parent_page_id"], name: "index_pages_on_parent_page_id"
+    t.index ["updated_at"], name: "index_pages_on_updated_at"
     t.index ["url"], name: "index_pages_on_url"
   end
 
@@ -58,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_12_25_075340) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["position"], name: "index_questions_on_position"
+    t.index ["updated_at"], name: "index_questions_on_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,6 +76,7 @@ ActiveRecord::Schema.define(version: 2018_12_25_075340) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role"], name: "index_users_on_role"
+    t.index ["updated_at"], name: "index_users_on_updated_at"
   end
 
   add_foreign_key "answers", "pages"
