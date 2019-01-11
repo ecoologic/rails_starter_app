@@ -6,5 +6,6 @@ class HomeController < ApplicationController
   end
 
   def authenticated
+    @pages = listable(Page)
   end
 end

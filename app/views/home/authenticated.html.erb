@@ -1,5 +1,7 @@
 <section>
   <p><b>Contratulations!</b> You are authenticated.  And now what?</p>
+  <hr>
+  <%= render '/pages/rank_table', pages: @pages %>
 </section>
 <section>
   <p><%= link_to "Pages", pages_path %></p>

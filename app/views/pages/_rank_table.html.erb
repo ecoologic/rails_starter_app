@@ -1,0 +1,22 @@
+<h2>Website rank table</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Url</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% pages.each do |page| %>
+    <tr>
+      <td><%= page.name %></td>
+      <td><%= link_to page.pretty_url, page.url %></td>
+      <% def new_rank_path(*); '/'; end %>
+      <td><%= link_to 'Rank', new_rank_path(page_id: page.id) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
