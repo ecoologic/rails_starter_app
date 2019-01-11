@@ -25,6 +25,8 @@ Metrics/MethodLength:
 Layout/AlignHash:
   Enabled: false
   
+Style/ClassAndModuleChildren:
+  Enabled: false # Better when using Rails
 Style/Documentation:
   Exclude:
     - db/**/*
