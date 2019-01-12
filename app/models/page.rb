@@ -1,6 +1,7 @@
 # When parent_page is nil this is the main site
 # Otherwise it refers to pages like "Terms and Conditions" of that site
 # TODO: Website extends
+#       WebPage
 class Page < ApplicationRecord
   belongs_to :creator, class_name: 'User'
   belongs_to :parent_page, class_name: 'Page', optional: true

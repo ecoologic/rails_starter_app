@@ -11,17 +11,21 @@ An app to know which websites respect your privacy and those you should avoid. T
     + upvote_user_ids: Array
     + downvote_user_ids: Array
     + created_at
-[Answer] *-> [Question]
-[Answer] *-> [Website]
-[Answer] *-> [User]
+[Answer]-*-> [Question]
+      |--*-> [Website]
+       \--->*[User]
 
 [Question]
     + value
     + position
 
-[Page] => [Website]-(Page#name = 'root')
-[Page] *-> [Website]
-[Page]
+[Rank]-*-> [Website]
+    |---->*[User]-(creator)
+     \-*-> [Answer]
+
+[WebPage] => [Website]-(WebPage#name = 'root')
+      \--*-> [Website]-(WebPage#name = 'T&C etc')
+[WebPage]
     + name (eg: Facebook, Privacy, T&C, Terms of Service, Article, Review)
     + url
     + updated_at
@@ -31,7 +35,7 @@ An app to know which websites respect your privacy and those you should avoid. T
 ---
 
 [Comment] *-(commentable)-> [Answer]
-[Comment] *-(commentable)-> [Page]
+[Comment] *-(commentable)-> [WebPage]
 [Comment] *-> [User]
 
 [Badge] *-> [User]
