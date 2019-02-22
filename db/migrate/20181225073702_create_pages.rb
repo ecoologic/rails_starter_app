@@ -6,7 +6,7 @@ class CreatePages < ActiveRecord::Migration[5.2]
 
       t.string :name, null: false, index: true
       t.string :url, null: false, index: true, unique: true
-      t.text :html, null: false
+      t.text :html
 
       t.index %i[parent_page_id name], unique: true
 

@@ -18,5 +18,9 @@ class Ability
 
     can :manage, Page, creator_id: user.id
     can :read, Page
+
+    can :manage, :rank # TODO: new setting current_user and page_id from params
+
+    can :manage, Answer, creator_id: user.id # TODO: create
   end
 end

@@ -1,0 +1,15 @@
+<% autofocus_override = local_assigns[:answer_counter].zero? || local_assigns[:autofocus] %>
+<%= form_with model: answer do |f| %>
+  <%= render_errors(answer) %>
+
+  <%= f.hidden_field :page_id %>
+  <%= f.hidden_field :question_id %>
+
+  <%= f.label :rating, answer.question_value %>
+  <%= f.number_field :rating, autofocus: autofocus_override %>
+
+  <%= f.label :quote %>
+  <%= f.text_field :quote %>
+
+  <%= f.submit "Save" %>
+<% end %>
