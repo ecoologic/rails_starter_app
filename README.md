@@ -2,6 +2,18 @@
 
 A blank app.
 
+## Bootstrap features
+
+See goodies in:
+
+* `Gemfile`
+* `config/console.rb`
+* `config/post_rails_initialization.rb`
+* `config/settings.rb`
+* `lib/log.rb`
+* `helpers/application_helper.rb`
+* `contorllers/application_controller.rb`
+
 ## Install
 
 Depends on [Docker](https://www.docker.com/).
