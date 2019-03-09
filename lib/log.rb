@@ -4,44 +4,56 @@ module Log
     Rails.logger
   end
 
-  def self.debug(*args)
-    logger.debug(*args)
+  def self.debug(message, e: nil, **info)
+    logger.debug(message)
+    logger.debug(pretty_exception(e)) if e
+    logger.debug(pretty_info(info)) if info.present?
     nil
   end
 
-  def self.info(*args)
-    logger.info(*args)
+  def self.info(message, e: nil, **info)
+    logger.info(message)
+    logger.info(pretty_exception(e)) if e
+    logger.info(info) if info.present?
     nil
   end
 
-  def self.warn(message, exception = nil, info = {})
-    logger.warn logger_message(message, exception, info)
-    # Rollbar.warn(message, exception, info_with_stack(exception, info))
+  def self.warn(message, e: nil, **info)
+    logger.warn message
+    logger.warn(pretty_exception(e)) if e
+    logger.warn info if info.present?
+    # Rollbar.warn(message, e, info_with_stack(exception, info))
     nil
   end
 
-  def self.error(message, exception = nil, info = {})
-    logger.error logger_message(message, exception, info)
-    # Rollbar.error(message, exception, info_with_stack(exception, info))
+  def self.error(message, e: nil, **info)
+    logger.error message
+    logger.error(pretty_exception(e)) if e
+    logger.error info if info.present?
+    # Rollbar.error(message, e, info_with_stack(exception, info))
     nil
   end
 
-  def self.fatal(message, exception = nil, info = {})
-    logger.fatal logger_message(message, exception, info)
-    # Rollbar.critical(message, exception, info_with_stack(exception, info))
-    raise(message) if Rails.env.development?
+  def self.fatal(message, e: nil, **info)
+    logger.fatal message
+    logger.fatal(pretty_exception(e)) if e
+    logger.fatal info if info.present?
+    # Rollbar.critical(message, e, info_with_stack(exception, info))
+    raise(e) if Rails.env.development?
   end
 
-  def self.logger_message(message, exception, info)
+  def self.pretty_exception(exception)
     [
-      message,
-      "Warn exception: #{exception}",
-      exception && exception.backtrace.to_a.join("\n\t"),
-      "Warn info: #{info.to_h.inspect.gsub(', ', ",\n\t")}"
+      exception.message,
+      exception.backtrace.to_a.join("\n\t"),
     ].join("\n")
   end
 
-  def self.info_with_stack(exception, info)
-    exception ? info.to_h : { caller: caller }.merge(info.to_h)
+  def self.pretty_info(info)
+    info.to_h.inspect.gsub(', ', ",\n\t")
   end
+
+  # def self.info_with_stack(exception, info)
+  #   exception ? info.to_h : { caller: caller }.merge(info.to_h)
+  # end
 end

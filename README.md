@@ -11,6 +11,8 @@ See goodies in:
 * `config/post_rails_initialization.rb`
 * `config/settings.rb`
 * `lib/log.rb`
+* `lib/rich/`
+* `spec/li_helper`
 * `helpers/application_helper.rb`
 * `contorllers/application_controller.rb`
 
