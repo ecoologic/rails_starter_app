@@ -1,0 +1,14 @@
+<h1>Rooms#show</h1>
+
+<h2>Messages</h2>
+
+<div id="messages">
+  <% @messages.all.each do |message| %>
+    <%= render message %>
+  <% end %>
+</div>
+
+<form>
+  <label for="room_speaker"></label>
+  <input id="room_speaker" data-behaviour="room_speaker" autofocus />
+</form>
