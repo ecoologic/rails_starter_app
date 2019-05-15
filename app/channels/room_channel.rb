@@ -7,8 +7,12 @@ class RoomChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def speak(data)
+  def speak(params)
     # ActionCable.server.broadcast 'room_channel', message: data['message']
-    Message.create! content: data['message']
+
+    # Messages::CreateService.new(message_params).call
+    sanitized_params = ActionController::Parameters.new(params).permit(message: :content)
+    message = Message.create!(sanitized_params[:message])
+    MessageBroadcastJob.perform_later(message)
   end
 end

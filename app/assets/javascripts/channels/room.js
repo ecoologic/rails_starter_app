@@ -7,9 +7,9 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
     // Called when the subscription has been terminated by the server
   },
 
-  received: function(data) {
+  received: function({message_html}) {
     // alert(data.message)
-    $('#messages').append(data['message'])
+    $('#messages').append(message_html)
   },
 
   speak: function(message) {
@@ -20,7 +20,8 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
 $(() => {
   $(document).on('keypress', '[data-behaviour~=room_speaker]', (event) => {
     if(event.key === 'Enter') {
-      App.room.speak(event.target.value)
+      const message = { content: event.target.value }
+      App.room.speak(message)
       event.target.value = ''
       event.preventDefault()
     }
